@@ -1,1 +1,10 @@
-<p>felhasznalo-nev works!</p>
+<h2>Felhasználónév formátum ellenőrzése</h2>
+<form>
+    <div class="form-control">
+        <label for="felhasznalonev">A felhasználónév:</label>
+        <input type="string" class="form-control" [(ngModel)]="Felhasznalonev" name="felhasznalonev" id="felhasznalonev">
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success m-2" (click)="felhasznalonevMegfeleloE()">Ellenőrzés</button>
+    </div>
+</form>
