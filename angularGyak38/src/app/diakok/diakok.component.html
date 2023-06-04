@@ -1,1 +1,58 @@
-<p>diakok works!</p>
+<div class="container mt-5">
+    <h2>Diákok adatai</h2>
+    <ul>
+        <li *ngFor="let diak of Diakok">
+            Név: {{diak.nev}}, magasság: {{diak.magassag}} cm, súly: {{diak.suly}} kg
+        </li>
+    </ul>
+    <br>
+    <h2>Diákok adatai táblázattal:</h2>
+    <table class="table table-striped">
+        <!--kötelező theadbe és tbodyba beletenni h jól jelenítse meg BSpel-->
+        <thead> 
+            <th>Név</th>
+            <th>Magasság (cm)</th>
+            <th>Súly (kg)</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let diak of Diakok">
+                <td>{{diak.nev}}</td>
+                <td>{{diak.magassag}}</td>
+                <td>{{diak.suly}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <h2>Ki(k) a legmagasabb(ak):</h2>
+    <p>A legnagyobb magasság: {{MaxDiakMagassag}}cm</p>
+    <ul>
+        <span *ngFor="let diak of Diakok"> 
+            <li *ngIf="diak.magassag == MaxDiakMagassag">
+                Név: {{diak.nev}}, Magasság: {{diak.magassag}} cm, Súly: {{diak.suly}} kg
+            </li>
+        </span>
+    </ul>
+    <br>
+    <h2>Mennyi az átlagmagassság:</h2>
+    <p>Az átlagmagasság: {{DiakAtlagMagassag}}cm</p>
+    <br>
+    <h2>Ki(k) a legsoványabb(ak):</h2>
+    <p>A legalacsonyabb súly: {{MinDiakSuly}}kg</p>
+    <ul>
+        <span *ngFor="let diak of Diakok"> 
+            <li *ngIf="diak.suly == MinDiakSuly">
+                Név: {{diak.nev}}, Magasság: {{diak.magassag}} cm, Súly: {{diak.suly}} kg
+            </li>
+        </span>
+    </ul>
+    <br>
+    <!--
+    <h2>Adott diák keresése:</h2>
+    <div>
+        <label for="nev">Diák keresése név alapján:</label>
+        <input type="text" [(ngModel)]="nev" placeholder="Diák neve">
+        <button class="btn btn-primary" (click)="DiakKeres()">Keresés</button>
+        <p *ngIf="diak">{{ diak.nev }} - Magasság: {{ diak.magassag }}, Súly: {{ diak.suly }}</p>
+        <p *ngIf="!diak">Nincs ilyen diák.</p>
+    </div>-->
+</div>
