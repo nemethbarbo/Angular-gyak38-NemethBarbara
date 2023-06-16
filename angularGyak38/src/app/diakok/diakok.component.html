@@ -46,13 +46,15 @@
         </span>
     </ul>
     <br>
-    <!--
+    
     <h2>Adott diák keresése:</h2>
     <div>
-        <label for="nev">Diák keresése név alapján:</label>
-        <input type="text" [(ngModel)]="nev" placeholder="Diák neve">
+        <label for="keresettNev">Diák keresése név alapján:</label>
+        <input type="text" class="form-control" [(ngModel)]="KeresettNev" name="diak" id="diak" placeholder="Diák neve">
         <button class="btn btn-primary" (click)="DiakKeres()">Keresés</button>
-        <p *ngIf="diak">{{ diak.nev }} - Magasság: {{ diak.magassag }}, Súly: {{ diak.suly }}</p>
-        <p *ngIf="!diak">Nincs ilyen diák.</p>
-    </div>-->
+        <p id="adat"></p>s
+        <!--<p>{{$keresettNev}}</p>
+        <p *ngIf="this.diakok[i]">Név: {{ this.diakok[i].nev }}, Magasság: {{ this.diakok[i].magassag }}, Súly: {{ this.diakok[i].suly }}</p>
+        <p *ngIf="!this.diakok[i]">Nincs ilyen diák.</p>-->
+    </div>
 </div>

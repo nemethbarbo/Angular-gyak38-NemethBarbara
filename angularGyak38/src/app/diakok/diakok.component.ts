@@ -13,11 +13,7 @@ export class DiakokComponent {
 
   private minDiakSuly: number = 0.0;
 
-  private diakElement: Diak = {
-    nev: "Teszt Elek",
-    magassag: 180,
-    suly: 80,
-  }
+  private keresettNev!: string;
 
   private diakok: Diak[] = [
     {
@@ -55,9 +51,13 @@ export class DiakokComponent {
   public get Diakok(): Diak[]{
     return this.diakok;
   }
+  
+  public get KeresettNev(): string {
+    return this.keresettNev;
+  }
 
-  public get DiakElement() : Diak {
-    return this.diakElement;
+  public set KeresettNev(v: string) {
+    this.keresettNev = v;
   }
 
   public get MaxDiakMagassag():number{
@@ -89,15 +89,20 @@ export class DiakokComponent {
   }
 
 
-  /*public DiakKeres(nev: string): Diak | undefined {
-    for (let diak of this.diakok) {
-      if (diak.nev.toLowerCase() === nev.toLowerCase()) {
-        console.log(diak);
-        return diak;
-      }
+  public DiakKeres(): void {
+    let nev = this.keresettNev;
+    let index = this.Diakok.findIndex(diak => diak.nev == nev);
+    if (nev != "") {
+        if (index >= 0) {
+          document.getElementById("adat")!.innerHTML = "A keresett diák adatai (név, magasság, súly): "+Object.values(this.diakok[index]).join(" ");
+        } else {
+          alert("Nem található ilyen nevű diák");
+        }
+    } else {
+      alert("Kérem adjon meg egy nevet")
     }
-    return undefined;
-  }*/
+  }
+
 }
 
 export interface Diak {
